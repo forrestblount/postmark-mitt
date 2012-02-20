@@ -101,9 +101,7 @@ module Postmark
       end
 
       def read
-        tempfile = MittTempfile.new(file_name, content_type)
-        tempfile.write(Base64.decode64(source["Content"]))
-        tempfile
+        Base64.decode64(source["Content"])
       end
 
       def size
